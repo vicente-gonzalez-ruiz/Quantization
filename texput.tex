@@ -55,7 +55,7 @@ usually denoted by $Q$, is a system that:
   individually, can take will require less bits to be represented than
   the values that the original signal ${\mathbf s}$ can.
 
-  Finally, note that $Q^{−1}$ is only a formal notation and does not
+  Finally, note that $Q^{-1}$ is only a formal notation and does not
   correspond to the reciprocal function of $Q$ since quantization is
   noninvertible~\cite{duhamel2009joint} (Quantization is not
   \href{https://en.wikipedia.org/wiki/Linear_map}{linear} transform).
@@ -93,7 +93,7 @@ cells\footnote{Also called ``bins''.} in the signal domain, and a
 finite set of \emph{representation values} $\{{\mathbf r}_i; i\in
 {\mathbb{Z}}\}$ (see Figure~\ref{fig:quantif}), both with the same
 cardinality (because there is one representation level per cell). The
-set ${\mathfb r}$ is called the \emph{codebook} and to their elements
+set ${\mathbf r}$ is called the \emph{codebook} and to their elements
 ${\mathbf r}_i$ \emph{codewords}.
 
 Given a finite number $K$ of cells, to minimize the MSE, ${\mathbf d}$
@@ -121,7 +121,7 @@ In vector quantization, several source samples are quantized
 simultaneously and a single index is associated to a vector of source
 samples. Vector quantization allows to account for the correlation
 between source samples directly at the quantizer, which improves its
-efficiency~\vite{duhamel2009joint}.
+efficiency~\cite{duhamel2009joint}.
 
 \section{Uniform quantization}
 
@@ -155,7 +155,7 @@ for uniform input PDF (Probability Density Function), we obtain that
 
 Now, if we add a bit to $R$, $R^{+1}=R+1$, then
 \begin{equation*}
-  \text{MSE}^{+1}=2^{-2(R+1)}\sigma_{\mathbfs} ^2 = 2^{-2}2^{-2R}\sigma_{\mathbf s}^2,
+  \text{MSE}^{+1}=2^{-2(R+1)}\sigma_{\mathbf s} ^2 = 2^{-2}2^{-2R}\sigma_{\mathbf s}^2,
 \end{equation*}
 and
 \begin{equation*}
