@@ -1,6 +1,6 @@
 <!DOCTYPE html> 
 <html lang='en-US' xml:lang='en-US'> 
-<head><title>Quantization</title> 
+<head><title>Signal Quantization</title> 
 <meta charset='utf-8' /> 
 <meta content='TeX4ht (https://tug.org/tex4ht/)' name='generator' /> 
 <meta content='width=device-width,initial-scale=1' name='viewport' /> 
@@ -15,7 +15,7 @@
 
                                                                   
 
-<h2 class='titleHead'><a href='https://github.com/vicente-gonzalez-ruiz/quantization'>Quantization</a></h2>
+<h2 class='titleHead'><a href='https://github.com/vicente-gonzalez-ruiz/signal_quantization'>Signal Quantization</a></h2>
  <div class='author'><span class='ecrm-1200'>Vicente González Ruiz</span></div><br />
 <div class='date'><span class='ecrm-1200'>May 10, 2022</span></div>
    </div>
@@ -42,10 +42,10 @@
                                                                   
 
                                                                   
-<!-- l. 13 --><p class='noindent' id='-an-example-quantization-procedure-applied-to-an-analog-signal-'><div style='text-align:center;'> <img src='graphics/cuantif.svg' /> </div>  <a id='x1-2001r1'></a>
+<!-- l. 13 --><p class='noindent' id='-an-example-of-the-quantization-procedure-applied-to-an-analog-signal-'><div style='text-align:center;'> <img src='graphics/cuantif.svg' /> </div>  <a id='x1-2001r1'></a>
 <a id='x1-2002'></a>
 </p>
-<figcaption class='caption'><span class='id'>Figure 1: </span><span class='content'>An example quantization procedure, applied to an analog signal.
+<figcaption class='caption'><span class='id'>Figure 1: </span><span class='content'>An example of the quantization procedure, applied to an analog signal.
 </span></figcaption><!-- tex4ht:label?: x1-2001r1  -->
                                                                   
 
@@ -58,18 +58,18 @@ that:
 <li class='enumerate' id='x1-2004x1'>
      <!-- l. 25 --><p class='noindent'>In the analog case (see the Figure <a href='#x1-2001r1'>1<!-- tex4ht:ref: fig:cuantif  --></a>), a <a href='https://en.wikipedia.org/wiki/Pulse-amplitude_modulation'>PAM signal</a> <span class='cmmi-10'>s</span><span class='cmr-10'>(</span><span class='cmmi-10'>nT</span><span class='cmr-10'>) </span>(i.e. a sequence
      of analog samples where <span class='cmmi-10'>s </span>is an (analog) signal, <span class='cmmi-10'>n </span><span class='cmsy-10'>∈ </span><span class='msbm-10'>ℤ  </span>and <span class='cmmi-10'>T  </span>is the
-     sampling period) is transformed into a <a href='https://en.wikipedia.org/wiki/Pulse-code_modulation'>PCM signal</a> <span class='cmbx-10'>s </span><span class='cmr-10'>= </span><span class='cmmi-10'>s</span><span class='cmr-10'>[</span><span class='cmmi-10'>n </span><span class='cmr-10'>= 0</span><span class='cmmi-10'>,</span><span class='cmr-10'>1</span><span class='cmmi-10'>,</span><img alt='⋅⋅⋅' class='@cdots' src='index0x.png' /><span class='cmr-10'>] =</span>.
+     sampling period) is transformed into a <a href='https://en.wikipedia.org/wiki/Pulse-code_modulation'>PCM signal</a> <span class='cmbx-10'>s </span><span class='cmr-10'>= </span><span class='cmmi-10'>s</span><span class='cmr-10'>[</span><span class='cmmi-10'>n </span><span class='cmr-10'>= 0</span><span class='cmmi-10'>,</span><span class='cmr-10'>1</span><span class='cmmi-10'>,</span><img alt='⋅⋅⋅' class='@cdots' src='index0x.png' /><span class='cmr-10'>]</span>.
      Therefore, analog quantization is the process of mapping a continuous
      range of values (not necessarily countable) into a finite range of discrete
-     values (necessarily countable) <span class='cite'>[<span class='ecbx-1000'>?</span>]</span>.
+     values (necessarily countable) <span class='cite'>[<a href='#Xvetterli1995wavelets'>4</a>]</span>.
      </p><!-- l. 36 --><p class='noindent'>Notice that, in general, analog signals are 1-dimensional, and that analog
      quantization is irreversible.
      </p></li>
 <li class='enumerate' id='x1-2006x2'>
-     <!-- l. 39 --><p class='noindent'>In the digital case, <span class='cmbx-10'>s </span>is already a PCM signal (a sequence of integers of
-     finite precision), the output of a quantizer is a sequence of quantization
+     <!-- l. 39 --><p class='noindent'>In the digital case, where <span class='cmbx-10'>s </span>is already a PCM signal (a sequence of integers
+     of finite precision), the output of a quantizer is a sequence of quantization
      indexes <span class='cmbx-10'>k</span>, and the inverse system, called a <span class='ecti-1000'>dequantizer </span>or <span class='ecti-1000'>inverse quantizer</span>
-     (denoted by Q<sup><span class='cmsy-7'>−</span><span class='cmr-7'>1</span></sup>), can only recovers an approximated version of <span class='cmbx-10'>s </span>that it
+     (denoted by <span class='cmmi-10'>Q</span><sup><span class='cmsy-7'>−</span><span class='cmr-7'>1</span></sup>), can only recovers an approximated version of <span class='cmbx-10'>s </span>that it
      will be denoted by <span class='accenttilde'><span class='cmbx-10'>s</span></span>.
      </p><!-- l. 47 --><p class='noindent'>If we define the <span class='ecti-1000'>cardinality </span>operator <span class='cmsy-10'>|⋅| </span>applied to a digital signal as the
      number of different values that such signal can take, i.e., the size of the signal
@@ -77,7 +77,7 @@ that:
 </p>
      <table class='equation'><tr><td>
 <div class='math-display'>
-<img alt='|s| ≤ |˜s| = |k|.
+<img alt='|s| ≥ |˜s| = |k|.
 ' class='math-display' src='index1x.png' /><a id='x1-2007r1'></a></div>
      </td><td class='equation-label'>(1)</td></tr></table>
                                                                   
@@ -87,24 +87,25 @@ that:
      As a consequence of this property, the values that <span class='cmbx-10'>k</span>, individually, can take will
      require less bits to be represented than the values that the original signal <span class='cmbx-10'>s</span>
      can.
-     </p><!-- l. 58 --><p class='noindent'>Finally, note that <span class='cmmi-10'>Q</span><sup><span class='cmsy-7'>−</span><span class='cmr-7'>1</span></sup> is only a formal notation and does not correspond to the
-     reciprocal function of <span class='cmmi-10'>Q </span>since quantization is noninvertible <span class='cite'>[<a href='#Xduhamel2009joint'>1</a>]</span> (Quantization is
-     not <a href='https://en.wikipedia.org/wiki/Linear_map'>linear</a> transform).
+     </p><!-- l. 58 --><p class='noindent'>Finally, note that in the case of digital quantization, <span class='cmmi-10'>Q</span><sup><span class='cmsy-7'>−</span><span class='cmr-7'>1</span></sup> is only a
+     formal notation and does not correspond to the reciprocal function of
+     <span class='cmmi-10'>Q </span>since quantization is noninvertible <span class='cite'>[<a href='#Xduhamel2009joint'>1</a>]</span> (Quantization is not <a href='https://en.wikipedia.org/wiki/Linear_map'>linear</a>
+     transform).
 </p>
      </li></ol>
    <h3 class='sectionHead' id='quantization-error'><span class='titlemark'>2   </span> <a id='x1-30002'></a>Quantization error</h3>
-<!-- l. 67 --><p class='noindent'>Quantization is a lossy process that usually generates a distortion between <span class='cmbx-10'>s </span>and <span class='accenttilde'><span class='cmbx-10'>s</span></span>.
-The quantization error in unpredectible (for this reason is also called quantization
-noise), and therefore, we cannot recover <span class='cmbx-10'>s</span>.
-</p><!-- l. 70 --><p class='indent'>   We define the quantization error
+<!-- l. 68 --><p class='noindent'>Quantization is a lossy process that usually generates a distortion between <span class='cmbx-10'>s </span>and <span class='accenttilde'><span class='cmbx-10'>s</span></span>.
+The quantization error in unpredectible (for this reason is also called <span class='ecti-1000'>quantization
+</span><span class='ecti-1000'>noise</span>), and therefore, we cannot recover <span class='cmbx-10'>s </span>after quantization.
+</p><!-- l. 74 --><p class='indent'>   We define the quantization error
 </p>
    <table class='equation'><tr><td>
    <div class='math-display'>
 <img alt='e = s− ˜s,
 ' class='math-display' src='index2x.png' /><a id='x1-3001r2'></a></div>
    </td><td class='equation-label'>(2)</td></tr></table>
-<!-- l. 73 --><p class='nopar'>
-an the distortion is generally measured as the Mean Squared Error determined
+<!-- l. 77 --><p class='nopar'>
+an the distortion, generally measured as the Mean Squared Error determined
 by
 </p>
    <table class='equation'><tr><td>
@@ -112,141 +113,79 @@ by
 <img alt='MSE (s,˜s) = E ((s− ˜s)2),
 ' class='math-display' src='index3x.png' /><a id='x1-3002r3'></a></div>
    </td><td class='equation-label'>(3)</td></tr></table>
-<!-- l. 79 --><p class='nopar'>
+<!-- l. 83 --><p class='nopar'>
 where <span class='cmmi-10'>E</span><span class='cmr-10'>(</span><span class='cmsy-10'>⋅</span><span class='cmr-10'>) </span>denotes the <a href='https://en.wikipedia.org/wiki/Expected_value'>expectation</a> operator.
-</p><!-- l. 84 --><p class='noindent'>
+</p><!-- l. 88 --><p class='noindent'>
 </p>
    <h3 class='sectionHead' id='quantizer-design'><span class='titlemark'>3   </span> <a id='x1-40003'></a>Quantizer design</h3>
-<!-- l. 86 --><p class='noindent'><span class='cmmi-10'>Q </span>should be designed to minimize the MSE, and this depends on how the
+<!-- l. 90 --><p class='noindent'><span class='cmmi-10'>Q </span>should be designed to minimize the MSE, and this depends on how the
 mapping between the input signal <span class='cmbx-10'>s </span>and the quantized signal <span class='accenttilde'><span class='cmbx-10'>s</span></span> has been
 performed.
-</p><!-- l. 90 --><p class='indent'>   <span class='cmmi-10'>Q </span>is defined by a finite set of <span class='ecti-1000'>decision boundaries </span><span class='cmsy-10'>{</span><span class='cmbx-10'>d</span><sub><span class='cmmi-7'>i</span></sub><span class='cmr-10'>;</span><span class='cmmi-10'>i </span><span class='cmsy-10'>∈ </span><span class='msbm-10'>ℤ</span><span class='cmsy-10'>} </span>that describe a set or
-cells<span class='footnote-mark'><a href='index2.html#fn1x0'><sup class='textsuperscript'>1</sup></a></span><a id='x1-4001f1'></a> 
+</p><!-- l. 94 --><p class='indent'>   <span class='cmmi-10'>Q </span>is defined by a finite set of <span class='ecti-1000'>decision boundaries </span><span class='cmsy-10'>{</span><span class='cmbx-10'>d</span><sub><span class='cmmi-7'>i</span></sub><span class='cmr-10'>;</span><span class='cmmi-10'>i </span><span class='cmsy-10'>∈ </span><span class='msbm-10'>ℤ</span><span class='cmsy-10'>} </span>that describe a set of
+<span class='ecti-1000'>cells</span><span class='footnote-mark'><a href='index2.html#fn1x0'><sup class='textsuperscript'>1</sup></a></span><a id='x1-4001f1'></a> 
 in the signal domain, and a finite set of <span class='ecti-1000'>representation values </span><span class='cmsy-10'>{</span><span class='cmbx-10'>r</span><sub><span class='cmmi-7'>i</span></sub><span class='cmr-10'>;</span><span class='cmmi-10'>i </span><span class='cmsy-10'>∈ </span><span class='msbm-10'>ℤ</span><span class='cmsy-10'>} </span>(see
-Figure <span class='ecbx-1000'>??</span>), both with the same cardinality (because there is one representation level
-per cell). The set <span class='cmbx-10'>r </span>is called the <span class='ecti-1000'>codebook </span>and to their elements <span class='cmbx-10'>r</span><sub><span class='cmmi-7'>i</span></sub> <span class='ecti-1000'>codewords</span>.
-</p><!-- l. 99 --><p class='indent'>   Given a finite number <span class='cmmi-10'>K </span>of cells, to minimize the MSE, <span class='cmbx-10'>d </span>and <span class='cmbx-10'>r </span>are selected
+Figure <a href='#x1-2001r1'>1<!-- tex4ht:ref: fig:cuantif  --></a>), both with the same cardinality (because there is one representation
+level per cell). The set <span class='cmbx-10'>r </span>is called the <span class='ecti-1000'>codebook </span>and to their elements, <span class='cmbx-10'>r</span><sub><span class='cmmi-7'>i</span></sub>,
+<span class='ecti-1000'>codewords</span>.
+</p><!-- l. 103 --><p class='indent'>   Given a finite number <span class='cmmi-10'>K </span>of cells, to minimize the MSE, <span class='cmbx-10'>d </span>and <span class='cmbx-10'>r </span>are selected
 depending on the characteristics of <span class='cmbx-10'>s</span>. In general, we need to consider the statistical
 distribution of the samples (or vectors of samples, depending on the way we process
 the input) in <span class='cmbx-10'>s</span>.
-</p><!-- l. 105 --><p class='indent'>   Notice that <span class='cmmi-10'>K </span>has an impact on the output bit-rate of the quantizer and
-therefore, we could be interested in minimizing the RD (Rate Distortion) tradeoff
+</p><!-- l. 109 --><p class='indent'>   Notice that <span class='cmmi-10'>K </span>has an impact on the output bit-rate of the quantizer and
+therefore, we could be interested in minimizing the RD (Rate/Distortion) tradeoff
 instead of simply the MSE. However, such problem in general is addressed by using
-an entropy codec at the output of <span class='cmmi-10'>Q</span>.
+an <a href='https://en.wikipedia.org/wiki/Entropy_coding'>entropy codec</a> at the output of <span class='cmmi-10'>Q</span>.
 </p>
    <h3 class='sectionHead' id='scalar-quantization'><span class='titlemark'>4   </span> <a id='x1-50004'></a>Scalar quantization</h3>
-<!-- l. 113 --><p class='noindent'>Scalar quantizers map each source sample independently from the other samples
+<!-- l. 118 --><p class='noindent'>Scalar quantizers map each source sample independently from the other samples
 and therefore, a quantization index <span class='cmbx-10'>k</span><sub><span class='cmmi-7'>i</span></sub> is produced for each input sample
-<span class='cmbx-10'>s</span><sub><span class='cmmi-7'>i</span></sub> <span class='cite'>[<span class='ecbx-1000'>?</span>]</span>.
-</p><!-- l. 118 --><p class='noindent'>
+<span class='cmbx-10'>s</span><sub><span class='cmmi-7'>i</span></sub> <span class='cite'>[<a href='#Xvruiz__scalar_quantization'>2</a>]</span>.
+</p><!-- l. 123 --><p class='noindent'>
 </p>
    <h3 class='sectionHead' id='vector-quantization'><span class='titlemark'>5   </span> <a id='x1-60005'></a>Vector quantization</h3>
-<!-- l. 120 --><p class='noindent'>In vector quantization, several source samples are quantized simultaneously and a
-single index is associated to a vector of source samples. Vector quantization allows to
                                                                   
 
                                                                   
+<!-- l. 125 --><p class='noindent'>In vector quantization, several source samples are quantized simultaneously and a
+single index is associated to a vector of source samples. Vector quantization allows to
 account for the correlation between source samples directly at the quantizer, which
-improves its efficiency <span class='cite'>[<a href='#Xduhamel2009joint'>1</a>]</span>.
-</p><!-- l. 126 --><p class='noindent'>
+improves its RD efficiency <span class='cite'>[<a href='#Xduhamel2009joint'>1</a>, <a href='#Xvruiz__vector_quantization'>3</a>]</span>.
+</p><!-- l. 131 --><p class='noindent'>
 </p>
    <h3 class='sectionHead' id='uniform-quantization'><span class='titlemark'>6   </span> <a id='x1-70006'></a>Uniform quantization</h3>
-<!-- l. 128 --><p class='noindent'>In uniform quantizers, the size of the cells is constant. For example, in a scalar
-quantizer, the quantization step size is constant and independent of the input
+<!-- l. 133 --><p class='noindent'>In uniform quantizers, the size of the cells is constant. For example, in a scalar
+quantizer, the quantization step size <span class='cmr-10'>Δ </span>is constant and independent of the input
 signal.
-</p><!-- l. 132 --><p class='indent'>   Uniform quantizers are used in most A/D (analogic/digital) converters, where it
+</p><!-- l. 137 --><p class='indent'>   Uniform quantizers are used in most A/D (analogic/digital) converters, where it
 is expected the generation of uniformely distributed sequences of samples. In the case
 of scalar uniform digital quantizers, it is common to have <span class='cmmi-10'>r</span><sub><span class='cmmi-7'>i</span></sub> <span class='cmr-10'>= </span><span class='cmmi-10'>i </span>and the input
-intervals are of the form <span class='cmr-10'>(</span><span class='cmmi-10'>d</span><sub><span class='cmmi-7'>i</span><span class='cmsy-7'>−</span><span class='cmr-7'>1</span></sub><span class='cmmi-10'>,d</span><sub><span class='cmmi-7'>i</span></sub><span class='cmr-10'>] = (</span><span class='cmmi-10'>i </span><span class='cmsy-10'>− </span><span class='cmr-10'>1</span><span class='cmmi-10'>∕</span><span class='cmr-10'>2</span><span class='cmmi-10'>,i </span><span class='cmr-10'>+ 1</span><span class='cmmi-10'>∕</span><span class='cmr-10'>2]</span>.
-</p><!-- l. 138 --><p class='indent'>   In the case of analog scalar uniform quantizer, if <span class='cmmi-10'>R </span>is the number of bits
-of the quantizer per sample (for example, in the quantizer of the Fig. <a href='#x1-2001r1'>1<!-- tex4ht:ref: fig:cuantif  --></a>,
-<span class='cmmi-10'>R </span><span class='cmr-10'>= </span><span class='cmsy-10'>⌈</span><span class='cmr-10'>log</span> <sub><span class='cmr-7'>2</span></sub><span class='cmr-10'>(5)</span><span class='cmsy-10'>⌉ </span><span class='cmr-10'>= 3</span>-bits and <span class='cmr-10'>(</span><span class='cmmi-10'>Q </span><span class='cmr-10'>= 8)</span>), <span class='cmr-10'>Δ </span>decreases as <img align='middle' alt='12R' class='frac' src='index4x.png' />. Considering Eq. <span class='ecbx-1000'>??</span> and
-Eq. <span class='ecbx-1000'>??</span>, we have that
-</p>
-   <table class='equation'><tr><td>
-   <div class='math-display'>
-<img alt='        2               2
-MSE =  Δ--= (dmax −-dmin)-,
-       12       12Q2
-' class='math-display' src='index5x.png' /><a id='x1-7001r4'></a></div>
-   </td><td class='equation-label'>(4)</td></tr></table>
-<!-- l. 147 --><p class='nopar'>
-where <span class='cmbx-10'>d</span><sub>m<span class='cmmi-7'>ax</span></sub> and <span class='cmbx-10'>d</span><sub>m<span class='cmmi-7'>in</span></sub> are the maximum and minimum decision boundary,
-respectively. Considering now that <span class='cmmi-10'>σ</span><sub><span class='cmbx-7'>s</span></sub><sup><span class='cmr-7'>2</span></sup> <span class='cmr-10'>=</span> <img align='middle' alt='(dmax−dmin)2
-    12' class='frac' src='index6x.png' /> for uniform input PDF
-(Probability Density Function), we obtain that
-</p>
-   <table class='equation'><tr><td>
-                                                                  
-
-                                                                  
-   <div class='math-display'>
-<img alt='MSE  = σ2s2−2R.
-' class='math-display' src='index7x.png' /><a id='x1-7002r5'></a></div>
-   </td><td class='equation-label'>(5)</td></tr></table>
-<!-- l. 154 --><p class='nopar'>
-</p><!-- l. 156 --><p class='indent'>   Now, if we add a bit to <span class='cmmi-10'>R</span>, <span class='cmmi-10'>R</span><sup><span class='cmr-7'>+1</span></sup> <span class='cmr-10'>= </span><span class='cmmi-10'>R </span><span class='cmr-10'>+ 1</span>, then
-</p>
-   <table class='equation-star'><tr><td>
-   <div class='math-display'>
-<img alt='MSE+1 = 2−2(R+1)σ2 = 2−22−2Rσ2,
-                 s          s
-' class='math-display' src='index8x.png' /></div>
-   </td></tr></table>
-<!-- l. 159 --><p class='nopar'>
-and
-</p>
-   <table class='equation-star'><tr><td>
-   <div class='math-display'>
-<img alt='                  2               2
-SNR+1 = 10log10--σs---= 10log10 4-σs--= 10log104 +SNR  ≈ 6 dB + SNR.
-               MSE+1            MSE
-' class='math-display' src='index9x.png' /></div>
-   </td></tr></table>
-<!-- l. 164 --><p class='nopar'>
-This result is interesting because in a PCM system, the quality of the signal is
-incremented <span class='cmr-10'>6 </span>dB with each bit. Notice that in <a href='https://en.wikipedia.org/wiki/High_fidelity'>HiFi</a>, the SNR must be at least of <span class='cmr-10'>96</span>
-dB, and
-</p>
-                                                                  
-
-                                                                  
-   <table class='equation-star'><tr><td>
-   <div class='math-display'>
-<img alt='96 = 16,
- 6
-' class='math-display' src='index10x.png' /></div>
-   </td></tr></table>
-<!-- l. 171 --><p class='nopar'>
-the number of bits per sample used in the <a href='https://en.wikipedia.org/wiki/Compact_disc'>Audio CDs</a>.
-</p><!-- l. 175 --><p class='noindent'>
+intervals are of the form <span class='cmr-10'>]</span><span class='cmmi-10'>d</span><sub><span class='cmmi-7'>i</span><span class='cmsy-7'>−</span><span class='cmr-7'>1</span></sub><span class='cmmi-10'>,d</span><sub><span class='cmmi-7'>i</span></sub><span class='cmr-10'>] =]</span><span class='cmmi-10'>i </span><span class='cmsy-10'>− </span><span class='cmr-10'>1</span><span class='cmmi-10'>∕</span><span class='cmr-10'>2</span><span class='cmmi-10'>,i </span><span class='cmr-10'>+ 1</span><span class='cmmi-10'>∕</span><span class='cmr-10'>2]</span>.
+</p><!-- l. 182 --><p class='noindent'>
 </p>
    <h3 class='sectionHead' id='nonuniform-quantization'><span class='titlemark'>7   </span> <a id='x1-80007'></a>Non-uniform quantization</h3>
-<!-- l. 177 --><p class='noindent'>Depending on how the quantizer has been designed, it can be necesary to define the
-so called <span class='ecti-1000'>low and high overload regions</span>, respectively, that in the case of analog
-quantization ban be described as
-</p>
-   <table class='equation'><tr><td>
-   <div class='math-display'>
-<img alt='       rmin,           if s(nTs) &lt; dmin
-s[n] = { rmax,          if s(nTs) &gt; dmax
-       s(nTs)+ e(nTs), otherwise.
-' class='math-display' src='index11x.png' /><a id='x1-8001r6'></a></div>
-   </td><td class='equation-label'>(6)</td></tr></table>
-<!-- l. 185 --><p class='nopar'>
-On other occasions, and depending on the PDF of <span class='cmbx-10'>s</span>, the cells must be of different
-size to minimize the MSE. When all the cells do not have the same size we have
+<!-- l. 197 --><p class='noindent'>In order to minimize the MSE, the cells defined by the quantizer cound be of different
+size depending on the PDF of <span class='cmbx-10'>s</span>. When all the cells do not have the same size we have
 designed a non-uniform quantizer.
-                                                                  
-
-                                                                  
-</p><!-- l. 191 --><p class='noindent'>
+</p><!-- l. 202 --><p class='noindent'>
 </p>
    <h3 class='sectionHead' id='resources'><span class='titlemark'>8   </span> <a id='x1-90008'></a>Resources</h3>
    <div class='thebibliography'>
    <p class='bibitem'><span class='biblabel'>
  [1]<span class='bibsp'>   </span></span><a id='Xduhamel2009joint'></a>P. Duhamel  and  M. Kieffer.     <a href='https://bunker4.zlibcdn.com/dtoken/46b7646f3bd1efce590cc7beac8f703e'><span class='ecti-1000'>Joint  Source-Channel  Decoding:  A
    </span><span class='ecti-1000'>Cross-Layer Perspective with Applications</span></a>. Academic Press, 2009.
+   </p>
+   <p class='bibitem'><span class='biblabel'>
+ [2]<span class='bibsp'>   </span></span><a id='Xvruiz__scalar_quantization'></a>V. González-Ruiz. <a href='https://vicente-gonzalez-ruiz.github.io/scalar_quantization/'>Scalar Quantization</a>.
+   </p>
+   <p class='bibitem'><span class='biblabel'>
+ [3]<span class='bibsp'>   </span></span><a id='Xvruiz__vector_quantization'></a>V. González-Ruiz. <a href='https://vicente-gonzalez-ruiz.github.io/vector_quantization/'>Vector Quantization</a>.
+                                                                  
+
+                                                                  
+   </p>
+   <p class='bibitem'><span class='biblabel'>
+ [4]<span class='bibsp'>   </span></span><a id='Xvetterli1995wavelets'></a>M. Vetterli  and  J. Kovačević.     <a href='http://waveletsandsubbandcoding.org/Repository/VetterliKovacevic95_Manuscript.pdf'><span class='ecti-1000'>Wavelets  and  Subband  Coding</span></a>.
+   Prentice-hall, 1995.
 </p>
    </div>
 <p id='references'><a id='Q1-1-11'></a>

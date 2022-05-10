@@ -10,9 +10,9 @@
 \section{Definition}
 
 \begin{figure}
-  \svg{graphics/cuantif}{900}
-  \caption{An example quantization procedure, applied to an analog
-    signal.}
+  \svgfig{graphics/cuantif}{6cm}{900}
+  \caption{An example of the quantization procedure, applied to an
+    analog signal.}
   \label{fig:cuantif}
 \end{figure}
 
@@ -28,7 +28,7 @@ usually denoted by $Q$, is a system that:
   where $s$ is an (analog) signal, $n\in{\mathbb{Z}}$ and $T$ is the
   sampling period) is transformed into a
   \href{https://en.wikipedia.org/wiki/Pulse-code_modulation}{PCM
-    signal} ${\mathbf s}=s[n=0,1,\cdots]=$. Therefore, analog
+    signal} ${\mathbf s}=s[n=0,1,\cdots]$. Therefore, analog
   quantization is the process of mapping a continuous range of values
   (not necessarily countable) into a finite range of discrete values
   (necessarily countable)~\cite{vetterli1995wavelets}.
@@ -36,11 +36,11 @@ usually denoted by $Q$, is a system that:
   Notice that, in general, analog signals are 1-dimensional, and that
   analog quantization is irreversible.
   
-\item In the digital case, ${\mathbf s}$ is already a PCM signal (a
-  sequence of integers of finite precision), the output of a quantizer
-  is a sequence of quantization indexes ${\mathbf k}$, and the inverse
-  system, called a \emph{dequantizer} or \emph{inverse quantizer}
-  (denoted by $\text{Q}^{-1}$), can only recovers an approximated
+\item In the digital case, where ${\mathbf s}$ is already a PCM signal
+  (a sequence of integers of finite precision), the output of a
+  quantizer is a sequence of quantization indexes ${\mathbf k}$, and
+  the inverse system, called a \emph{dequantizer} or \emph{inverse
+  quantizer} (denoted by $Q^{-1}$), can only recovers an approximated
   version of ${\mathbf s}$ that it will be denoted by $\tilde{\mathbf
     s}$.
 
@@ -49,14 +49,15 @@ usually denoted by $Q$, is a system that:
   can take, i.e., the size of the signal alphabet, it ususally holds
   that
   \begin{equation}
-    |{\mathbf s}|\leq|\tilde{\mathbf s}| = |{\mathbf k}|.
+    |{\mathbf s}|\geq|\tilde{\mathbf s}| = |{\mathbf k}|.
   \end{equation}
   As a consequence of this property, the values that ${\mathbf k}$,
   individually, can take will require less bits to be represented than
   the values that the original signal ${\mathbf s}$ can.
 
-  Finally, note that $Q^{-1}$ is only a formal notation and does not
-  correspond to the reciprocal function of $Q$ since quantization is
+  Finally, note that in the case of digital quantization, $Q^{-1}$ is
+  only a formal notation and does not correspond to the reciprocal
+  function of $Q$ since quantization is
   noninvertible~\cite{duhamel2009joint} (Quantization is not
   \href{https://en.wikipedia.org/wiki/Linear_map}{linear} transform).
   
@@ -65,13 +66,16 @@ usually denoted by $Q$, is a system that:
 \section{Quantization error}
 
 Quantization is a lossy process that usually generates a distortion
-between ${\mathbf s}$ and $\tilde{\mathbf s}$. The quantization error in unpredectible (for this reason is also called quantization noise), and therefore, we cannot recover ${\mathbf s}$.
+between ${\mathbf s}$ and $\tilde{\mathbf s}$. The quantization error
+in unpredectible (for this reason is also called \emph{quantization
+noise}), and therefore, we cannot recover ${\mathbf s}$ after
+quantization.
 
 We define the quantization error
 \begin{equation}
   {\mathbf e} = {\mathbf s} - \tilde{{\mathbf s}},
 \end{equation}
-an the distortion is generally measured as the Mean Squared Error
+an the distortion, generally measured as the Mean Squared Error
 determined by
 \begin{equation}
   \text{MSE}({\mathbf s}, \tilde{\mathbf s}) = E(({\mathbf s} - \tilde{\mathbf s})^2),
@@ -88,13 +92,13 @@ the mapping between the input signal ${\mathbf s}$ and the quantized
 signal $\tilde{\mathbf s}$ has been performed.
 
 $Q$ is defined by a finite set of \emph{decision boundaries}
-$\{{\mathbf d}_i; i\in {\mathbb{Z}}\}$ that describe a set or
-cells\footnote{Also called ``bins''.} in the signal domain, and a
-finite set of \emph{representation values} $\{{\mathbf r}_i; i\in
-{\mathbb{Z}}\}$ (see Figure~\ref{fig:quantif}), both with the same
+$\{{\mathbf d}_i; i\in {\mathbb{Z}}\}$ that describe a set of
+\emph{cells}\footnote{Also called ``bins''.} in the signal domain, and
+a finite set of \emph{representation values} $\{{\mathbf r}_i; i\in
+{\mathbb{Z}}\}$ (see Figure~\ref{fig:cuantif}), both with the same
 cardinality (because there is one representation level per cell). The
-set ${\mathbf r}$ is called the \emph{codebook} and to their elements
-${\mathbf r}_i$ \emph{codewords}.
+set ${\mathbf r}$ is called the \emph{codebook} and to their elements,
+${\mathbf r}_i$, \emph{codewords}.
 
 Given a finite number $K$ of cells, to minimize the MSE, ${\mathbf d}$
 and ${\mathbf r}$ are selected depending on the characteristics of
@@ -103,10 +107,11 @@ distribution of the samples (or vectors of samples, depending on the
 way we process the input) in ${\mathbf s}$.
 
 Notice that $K$ has an impact on the output bit-rate of the quantizer
-and therefore, we could be interested in minimizing the RD (Rate
-Distortion) tradeoff instead of simply the MSE. However, such problem
-in general is addressed by using an entropy codec at the output of
-$Q$.
+and therefore, we could be interested in minimizing the RD
+(Rate/Distortion) tradeoff instead of simply the MSE. However, such
+problem in general is addressed by using an
+\href{https://en.wikipedia.org/wiki/Entropy_coding}{entropy codec} at
+the output of $Q$.
 
 \section{Scalar quantization}
 
@@ -121,24 +126,25 @@ In vector quantization, several source samples are quantized
 simultaneously and a single index is associated to a vector of source
 samples. Vector quantization allows to account for the correlation
 between source samples directly at the quantizer, which improves its
-efficiency~\cite{duhamel2009joint}.
+RD efficiency~\cite{duhamel2009joint, vruiz__vector_quantization}.
 
 \section{Uniform quantization}
 
 In uniform quantizers, the size of the cells is constant. For example,
-in a scalar quantizer, the quantization step size is constant and
-independent of the input signal.
+in a scalar quantizer, the quantization step size $\Delta$ is constant
+and independent of the input signal.
 
 Uniform quantizers are used in most A/D (analogic/digital) converters,
 where it is expected the generation of uniformely distributed
 sequences of samples. In the case of scalar uniform digital
 quantizers, it is common to have $r_i=i$ and the input intervals are
-of the form $(d_{i-1},d_i]=(i-1/2,i+1/2]$.
+of the form $]d_{i-1},d_i]=]i-1/2,i+1/2]$.
 
-In the case of analog scalar uniform quantizer, if $R$ is the number
+\begin{comment}
+In the case of a analog scalar uniform quantizer, if $R$ is the number
 of bits of the quantizer per sample (for example, in the quantizer of
 the Fig.~\ref{fig:cuantif}, $R=\lceil\log_2(5)\rceil=3$-bits and
-$(Q=8)$), $\Delta$ decreases as $\frac{1}{2^R}$. Considering
+$Q=8$), $\Delta$ decreases as $\frac{1}{2^R}$. Considering
 Eq.~\ref{eq:MSE_uniform_scalar_quantizer} and
 Eq.~\ref{eq:delta_definition}, we have that
 \begin{equation}
@@ -171,22 +177,27 @@ must be at least of $96$ dB, and
 \end{equation*}
 the number of bits per sample used in the
 \href{https://en.wikipedia.org/wiki/Compact_disc}{Audio CDs}.
+\end{comment}
 
 \section{Non-uniform quantization}
 
+\begin{comment}
 Depending on how the quantizer has been designed, it can be necesary to define the so called \emph{low and high overload
 regions}, respectively, that in the case of analog quantization ban be described as
 \begin{equation}
   s[n] = \{\begin{array}{ll}
-  r_{\text{min}}, & \text{if $s(nT_s)<d_{\text{min}}$} \\
-  r_{\text{max}}, & \text{if $s(nT_s)>d_{\text{max}}$} \\
-  s(nT_s)+e(nT_s), & \text{otherwise}.
+  {\mathbf r}_{\text{min}}, & \text{if $s(nT)<{\mathbf d}_{\text{min}}$} \\
+  {\mathbf r}_{\text{max}}, & \text{if $s(nT)>{\mathbf d}_{\text{max}}$} \\
+  s(nT)+e(nT), & \text{otherwise}.
   \end{array}
 \end{equation}
-On other occasions, and depending on the PDF of ${\mathbf s}$, the
-cells must be of different size to minimize the MSE. When all the
-cells do not have the same size we have designed a non-uniform
+On other occasions, and
+\end{comment}
+
+In order to minimize the MSE, the cells defined by the quantizer cound
+be of different size depending on the PDF of ${\mathbf s}$. When all
+the cells do not have the same size we have designed a non-uniform
 quantizer.
 
 \section{Resources}
-\bibliography{quantization,coding}
+\bibliography{quantization,coding,DWT}
