@@ -1,3 +1,1 @@
-# Quantization of signals
-
-[Click me](https://vicente-gonzalez-ruiz.github.io/signal_quantization/).
+# [Quantization of signals](https://vicente-gonzalez-ruiz.github.io/signal_quantization/).
