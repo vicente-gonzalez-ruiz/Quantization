@@ -1,4 +1,4 @@
-include $(HOME)/Makefile_templates/Makefile
+include $(MAKEFILE_TEMPLATES)/Makefile
 
 midtread.svg:	midtread.ipynb
 		jupyter nbconvert --to notebook --inplace --execute midtread.ipynb
