@@ -19,23 +19,23 @@
 
 <h2 class='titleHead'><a href='https://github.com/vicente-gonzalez-ruiz/signal_quantization'>Signal Quantization</a></h2>
  <div class='author'><span class='ecrm-1200'>Vicente González Ruiz</span></div><br />
-<div class='date'><span class='ecrm-1200'>September 13, 2022</span></div>
+<div class='date'><span class='ecrm-1200'>October 12, 2023</span></div>
    </div>
-   <h3 class='likesectionHead' id='contents'><a id='x1-1000'></a>Contents</h3>
+   <h3 class='likesectionHead'><a id='x1-1000'></a>Contents</h3>
    <div class='tableofcontents'>
-    <span class='sectionToc'>1 <a href='#definition' id='QQ2-1-2'>Definition</a></span>
-<br />    <span class='sectionToc'>2 <a href='#quantization-error' id='QQ2-1-4'>Quantization error</a></span>
-<br />    <span class='sectionToc'>3 <a href='#quantizer-design' id='QQ2-1-5'>Quantizer design</a></span>
-<br />    <span class='sectionToc'>4 <a href='#scalar-quantization' id='QQ2-1-6'>Scalar quantization</a></span>
-<br />    <span class='sectionToc'>5 <a href='#vector-quantization' id='QQ2-1-7'>Vector quantization</a></span>
-<br />    <span class='sectionToc'>6 <a href='#uniform-quantization' id='QQ2-1-8'>Uniform quantization</a></span>
-<br />    <span class='sectionToc'>7 <a href='#nonuniform-quantization' id='QQ2-1-9'>Non-uniform quantization</a></span>
-<br />    <span class='sectionToc'>8 <a href='#resources' id='QQ2-1-10'>Resources</a></span>
-<br />    <span class='sectionToc'><a href='#references'>References</a></span>
+    <span class='sectionToc'>1 <a href='#x1-20001' id='QQ2-1-2'>Definition</a></span>
+<br />    <span class='sectionToc'>2 <a href='#x1-30002' id='QQ2-1-4'>Quantization error</a></span>
+<br />    <span class='sectionToc'>3 <a href='#x1-40003' id='QQ2-1-5'>Quantizer design</a></span>
+<br />    <span class='sectionToc'>4 <a href='#x1-50004' id='QQ2-1-6'>Scalar quantization</a></span>
+<br />    <span class='sectionToc'>5 <a href='#x1-60005' id='QQ2-1-7'>Vector quantization</a></span>
+<br />    <span class='sectionToc'>6 <a href='#x1-70006' id='QQ2-1-8'>Uniform quantization</a></span>
+<br />    <span class='sectionToc'>7 <a href='#x1-80007' id='QQ2-1-9'>Non-uniform quantization</a></span>
+<br />    <span class='sectionToc'>8 <a href='#x1-90008' id='QQ2-1-10'>Resources</a></span>
+<br />    <span class='sectionToc'><a href='#Q1-1-11'>References</a></span>
    </div>
 <!-- l. 10 --><p class='noindent'>
 </p>
-   <h3 class='sectionHead' id='definition'><span class='titlemark'>1   </span> <a id='x1-20001'></a>Definition</h3>
+   <h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-20001'></a>Definition</h3>
    <figure class='figure'> 
 
                                                                   
@@ -44,7 +44,7 @@
                                                                   
 
                                                                   
-<!-- l. 13 --><p class='noindent' id='-an-example-of-the-quantization-procedure-applied-to-an-analog-signal-'><div style='text-align:center;'> <img src='graphics/cuantif.svg' /> </div>  <a id='x1-2001r1'></a>
+<!-- l. 13 --><p class='noindent'><div style='text-align:center;'> <img src='graphics/cuantif.svg' /> </div>  <a id='x1-2001r1'></a>
 <a id='x1-2002'></a>
 </p>
 <figcaption class='caption'><span class='id'>Figure 1: </span><span class='content'>An example of the quantization procedure, applied to an analog signal.
@@ -83,7 +83,7 @@ that:
      noninvertible <span class='cite'>[<a href='#Xduhamel2009joint'>1</a>]</span> (Quantization is not <a href='https://en.wikipedia.org/wiki/Linear_map'>linear</a> transform).
 </p>
      </li></ol>
-   <h3 class='sectionHead' id='quantization-error'><span class='titlemark'>2   </span> <a id='x1-30002'></a>Quantization error</h3>
+   <h3 class='sectionHead'><span class='titlemark'>2   </span> <a id='x1-30002'></a>Quantization error</h3>
 <!-- l. 68 --><p class='noindent'>Quantization is a lossy process that usually generates a distortion between \(\mathbf s\) and \(\tilde {\mathbf s}\). The
 quantization error in unpredectible (for this reason is also called <span class='ecti-1000'>quantization noise</span>),
 and therefore, we cannot recover \(\mathbf s\) after quantization.
@@ -96,7 +96,7 @@ an the distortion, generally measured as the Mean Squared Error determined by
 where \(E(\cdot )\) denotes the <a href='https://en.wikipedia.org/wiki/Expected_value'>expectation</a> operator.
 </p><!-- l. 88 --><p class='noindent'>
 </p>
-   <h3 class='sectionHead' id='quantizer-design'><span class='titlemark'>3   </span> <a id='x1-40003'></a>Quantizer design</h3>
+   <h3 class='sectionHead'><span class='titlemark'>3   </span> <a id='x1-40003'></a>Quantizer design</h3>
 <!-- l. 90 --><p class='noindent'>\(Q\) should be designed to minimize the MSE, and this depends on how the mapping
 between the input signal \(\mathbf s\) and the quantized signal \(\tilde {\mathbf s}\) has been performed.
 </p><!-- l. 94 --><p class='indent'>   \(Q\) is defined by a finite set of <span class='ecti-1000'>decision boundaries</span> \(\{{\mathbf d}_i; i\in {\mathbb {Z}}\}\) that describe a set of
@@ -114,20 +114,20 @@ simply the MSE. However, such problem in general is addressed by using an <a hre
 codec</a> at the output of \(Q\).
 </p><!-- l. 116 --><p class='noindent'>
 </p>
-   <h3 class='sectionHead' id='scalar-quantization'><span class='titlemark'>4   </span> <a id='x1-50004'></a>Scalar quantization</h3>
+   <h3 class='sectionHead'><span class='titlemark'>4   </span> <a id='x1-50004'></a>Scalar quantization</h3>
 <!-- l. 118 --><p class='noindent'>Scalar quantizers map each source sample independently from the other
 samples and therefore, a quantization index \({\mathbf k}_i\) is produced for each input sample
 \({\mathbf s}_i\) <span class='cite'>[<a href='#Xvruiz__scalar_quantization'>2</a>]</span>.
 </p><!-- l. 123 --><p class='noindent'>
 </p>
-   <h3 class='sectionHead' id='vector-quantization'><span class='titlemark'>5   </span> <a id='x1-60005'></a>Vector quantization</h3>
+   <h3 class='sectionHead'><span class='titlemark'>5   </span> <a id='x1-60005'></a>Vector quantization</h3>
 <!-- l. 125 --><p class='noindent'>In vector quantization, several source samples are quantized simultaneously and a
 single index is associated to a vector of source samples. Vector quantization allows to
 account for the correlation between source samples directly at the quantizer, which
 improves its RD efficiency <span class='cite'>[<a href='#Xduhamel2009joint'>1</a>, <a href='#Xvruiz__vector_quantization'>3</a>]</span>.
 </p><!-- l. 131 --><p class='noindent'>
 </p>
-   <h3 class='sectionHead' id='uniform-quantization'><span class='titlemark'>6   </span> <a id='x1-70006'></a>Uniform quantization</h3>
+   <h3 class='sectionHead'><span class='titlemark'>6   </span> <a id='x1-70006'></a>Uniform quantization</h3>
                                                                   
 
                                                                   
@@ -140,31 +140,31 @@ of scalar uniform digital quantizers, it is common to have \(r_i=i\) and the inp
 of the form \(]d_{i-1},d_i]=]i-1/2,i+1/2]\).
 </p><!-- l. 182 --><p class='noindent'>
 </p>
-   <h3 class='sectionHead' id='nonuniform-quantization'><span class='titlemark'>7   </span> <a id='x1-80007'></a>Non-uniform quantization</h3>
+   <h3 class='sectionHead'><span class='titlemark'>7   </span> <a id='x1-80007'></a>Non-uniform quantization</h3>
 <!-- l. 197 --><p class='noindent'>In order to minimize the MSE, the cells defined by the quantizer cound be of different
 size depending on the PDF of \(\mathbf s\). When all the cells do not have the same size we have
 designed a non-uniform quantizer.
 </p><!-- l. 202 --><p class='noindent'>
 </p>
-   <h3 class='sectionHead' id='resources'><span class='titlemark'>8   </span> <a id='x1-90008'></a>Resources</h3>
+   <h3 class='sectionHead'><span class='titlemark'>8   </span> <a id='x1-90008'></a>Resources</h3>
    <div class='thebibliography'>
    <p class='bibitem'><span class='biblabel'>
  [1]<span class='bibsp'>   </span></span><a id='Xduhamel2009joint'></a>P. Duhamel  and  M. Kieffer.     <a href='https://bunker4.zlibcdn.com/dtoken/46b7646f3bd1efce590cc7beac8f703e'><span class='ecti-1000'>Joint  Source-Channel  Decoding:  A
    </span><span class='ecti-1000'>Cross-Layer Perspective with Applications</span></a>. Academic Press, 2009.
    </p>
    <p class='bibitem'><span class='biblabel'>
- [2]<span class='bibsp'>   </span></span><a id='Xvruiz__scalar_quantization'></a>V. González-Ruiz. <a href='https://vicente-gonzalez-ruiz.github.io/scalar_quantization/'>Scalar Quantization</a>.
+ [2]<span class='bibsp'>   </span></span><a id='Xvruiz__scalar_quantization'></a>V. González-Ruiz. <a href='https://github.com/vicente-gonzalez-ruiz/scalar_quantization'>Scalar Quantization</a>.
    </p>
    <p class='bibitem'><span class='biblabel'>
- [3]<span class='bibsp'>   </span></span><a id='Xvruiz__vector_quantization'></a>V. González-Ruiz. <a href='https://vicente-gonzalez-ruiz.github.io/vector_quantization/'>Vector Quantization</a>.
+ [3]<span class='bibsp'>   </span></span><a id='Xvruiz__vector_quantization'></a>V. González-Ruiz. <a href='https://github.com/vicente-gonzalez-ruiz/vector_quantization'>Vector Quantization</a>.
    </p>
    <p class='bibitem'><span class='biblabel'>
  [4]<span class='bibsp'>   </span></span><a id='Xvetterli1995wavelets'></a>M. Vetterli  and  J. Kovačević.     <a href='http://waveletsandsubbandcoding.org/Repository/VetterliKovacevic95_Manuscript.pdf'><span class='ecti-1000'>Wavelets  and  Subband  Coding</span></a>.
    Prentice-hall, 1995.
 </p>
    </div>
-<p id='references'><a id='Q1-1-11'></a>
-   </p><div class='footnotes'><!-- l. 96 --><p class='indent'>     <span class='footnote-mark'><a href='#fn1x0-bk' id='fn1x0'><sup class='textsuperscript'>1</sup></a></span><span class='ecrm-0800'>Also called “bins”.</span></p>                                                                                        </div>
+<p><a id='Q1-1-11'></a></p>
+   <div class='footnotes'><!-- l. 96 --><p class='indent'>     <span class='footnote-mark'><a href='#fn1x0-bk' id='fn1x0'><sup class='textsuperscript'>1</sup></a></span><span class='ecrm-0800'>Also called “bins”.</span></p>                                                                                        </div>
  
 </body> 
 </html>
